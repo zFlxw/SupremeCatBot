@@ -12,7 +12,7 @@ import org.javacord.api.entity.user.User;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
-public class S_ClearCommand implements IServerCommand {
+public class SCommand_Clear implements IServerCommand {
     @Override
     public void performCommand(String command, Server server, User user, TextChannel textChannel, Message message, String[] args) {
         if (server.hasPermission(user, PermissionType.MANAGE_MESSAGES)) {
