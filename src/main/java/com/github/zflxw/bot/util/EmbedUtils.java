@@ -1,5 +1,6 @@
 package com.github.zflxw.bot.util;
 
+import com.github.zflxw.bot.SupremeCatBot;
 import org.javacord.api.entity.message.embed.EmbedBuilder;
 
 import java.awt.*;
@@ -29,7 +30,7 @@ public class EmbedUtils {
         return new EmbedBuilder()
                 .setTitle(":warning: Warnung! Falsche Syntax")
                 .setColor(Color.ORANGE)
-                .setDescription("Nutze ``"+usage+"``!");
+                .setDescription("Nutze ``"+SupremeCatBot.getInstance().PREFIX+usage+"``!");
     }
 
     public EmbedBuilder sendWarning(String title, String desc) {
@@ -39,7 +40,7 @@ public class EmbedUtils {
                 .setDescription(desc);
     }
 
-    public EmbedBuilder sendSuccess(String command, String desc) {
+    public EmbedBuilder sendSuccess(String desc) {
         return new EmbedBuilder()
                 .setTitle("<:success:734037912794169405> Erfolg!")
                 .setColor(Color.GREEN)

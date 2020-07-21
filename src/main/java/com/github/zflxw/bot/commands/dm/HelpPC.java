@@ -12,7 +12,7 @@ import java.time.Instant;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutionException;
 
-public class PCommand_Help implements IPrivateCommand {
+public class HelpPC implements IPrivateCommand {
     @Override
     public void performCommand(String command, User user, PrivateChannel privateChannel, Message message, String[] args) {
         StringBuilder stringBuilder = new StringBuilder();

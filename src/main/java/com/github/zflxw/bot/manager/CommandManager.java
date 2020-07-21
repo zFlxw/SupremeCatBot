@@ -1,7 +1,8 @@
 package com.github.zflxw.bot.manager;
 
-import com.github.zflxw.bot.commands.dm.PCommand_Help;
-import com.github.zflxw.bot.commands.server.SCommand_Clear;
+import com.github.zflxw.bot.commands.dm.HelpPC;
+import com.github.zflxw.bot.commands.server.ClearSC;
+import com.github.zflxw.bot.commands.server.KickSC;
 import com.github.zflxw.bot.interfaces.IServerCommand;
 import com.github.zflxw.bot.interfaces.IPrivateCommand;
 import org.javacord.api.entity.channel.PrivateChannel;
@@ -21,10 +22,11 @@ public class CommandManager {
         this.privateCommands = new ConcurrentHashMap<>();
 
         // Commands
-        this.commands.put("clear", new SCommand_Clear());
+        this.commands.put("clear", new ClearSC());
+        this.commands.put("kick", new KickSC());
 
         // Private Commands
-        this.privateCommands.put("help", new PCommand_Help());
+        this.privateCommands.put("help", new HelpPC());
     }
 
     public boolean performServerCommand(String command, Server server, User user, TextChannel channel, Message message, String[] args) {

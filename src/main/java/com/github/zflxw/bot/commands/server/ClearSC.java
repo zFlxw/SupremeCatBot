@@ -13,7 +13,7 @@ import org.javacord.api.util.logging.ExceptionLogger;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
-public class SCommand_Clear implements IServerCommand {
+public class ClearSC implements IServerCommand {
     @Override
     public void performCommand(String command, Server server, User user, TextChannel textChannel, Message message, String[] args) {
         if (server.hasPermission(user, PermissionType.MANAGE_MESSAGES)) {
@@ -27,11 +27,11 @@ public class SCommand_Clear implements IServerCommand {
                 }
                 message.delete();
                 textChannel.getMessages(amount).thenAcceptAsync(MessageSet::deleteAll);
-                textChannel.sendMessage(SupremeCatBot.getInstance().getEmbedUtils().sendSuccess("clear", "Es wurden ``"+totalMessages+"`` gelöscht!"))
+                textChannel.sendMessage(SupremeCatBot.getInstance().getEmbedUtils().sendSuccess("Es wurden ``"+totalMessages+"`` gelöscht!"))
                         .thenAcceptAsync(msg -> server.getApi().getThreadPool().getScheduler().schedule((Runnable) msg::delete, 3, TimeUnit.SECONDS))
                         .exceptionally(ExceptionLogger.get());
             } else {
-                textChannel.sendMessage(SupremeCatBot.getInstance().getEmbedUtils().sendUsage(SupremeCatBot.getInstance().PREFIX + "clear <number>"));
+                textChannel.sendMessage(SupremeCatBot.getInstance().getEmbedUtils().sendUsage("clear <number>"));
             }
         } else {
             textChannel.sendMessage(SupremeCatBot.getInstance().getEmbedUtils().sendNoPermissionMessage("clear"));
