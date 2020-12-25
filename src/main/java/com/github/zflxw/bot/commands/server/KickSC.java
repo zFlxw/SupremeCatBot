@@ -26,12 +26,12 @@ public class KickSC implements IServerCommand {
                     }
                     reason = strBuilder.toString().trim();
                     if (!server.hasPermission(target, PermissionType.KICK_MEMBERS)) {
-                        target.sendMessage(SupremeCatBot.getInstance().getEmbedUtils().sendWarning("Du wurdest gekickt!", "Du wurdest wegen ``" + reason + "`` von dem **" + server.getName() + "** Discord gekickt!"))
-                                .whenComplete((nothing, throwable) -> {
+                        target.sendMessage(SupremeCatBot.getInstance().getEmbedUtils().sendWarning("Du wurdest gekickt!", "Du wurdest wegen ``" + reason + "`` von dem **" + server.getName() + "** Discord gekickt!"));
+                                /*.whenComplete((nothing, throwable) -> {
                                     server.kickUser(target, reason).exceptionally(ExceptionLogger.get());
                                     textChannel.sendMessage(SupremeCatBot.getInstance().getEmbedUtils().sendSuccess("Der User **" + target.getName() + "** wurde erfolgreich gekickt!"));
                                 })
-                                .exceptionally(ExceptionLogger.get());
+                                .exceptionally(ExceptionLogger.get());*/
                     } else {
                         textChannel.sendMessage(SupremeCatBot.getInstance().getEmbedUtils().sendError("Fehler!", "Du kannst den User **" + target.getMentionTag() + "** nicht kicken!"));
                     }

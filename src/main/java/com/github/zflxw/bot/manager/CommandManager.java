@@ -1,6 +1,7 @@
 package com.github.zflxw.bot.manager;
 
 import com.github.zflxw.bot.commands.dm.HelpPC;
+import com.github.zflxw.bot.commands.server.BanSC;
 import com.github.zflxw.bot.commands.server.ClearSC;
 import com.github.zflxw.bot.commands.server.KickSC;
 import com.github.zflxw.bot.interfaces.IServerCommand;
@@ -24,6 +25,7 @@ public class CommandManager {
         // Commands
         this.commands.put("clear", new ClearSC());
         this.commands.put("kick", new KickSC());
+        this.commands.put("ban", new BanSC());
 
         // Private Commands
         this.privateCommands.put("help", new HelpPC());

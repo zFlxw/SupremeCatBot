@@ -1,7 +1,6 @@
 package com.github.zflxw.bot.listener;
 
 import com.github.zflxw.bot.SupremeCatBot;
-import org.javacord.api.Javacord;
 import org.javacord.api.entity.channel.PrivateChannel;
 import org.javacord.api.entity.channel.TextChannel;
 import org.javacord.api.entity.message.Message;

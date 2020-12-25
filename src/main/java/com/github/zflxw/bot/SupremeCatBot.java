@@ -14,18 +14,19 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class SupremeCatBot {
-
     public final String PREFIX = "$";
 
     private static SupremeCatBot instance;
     private CommandManager commandManager;
     private EmbedUtils embedUtils;
+    public static DiscordApi api;
 
     public static void main(String[] args) {
         new SupremeCatBot();
     }
 
     public SupremeCatBot() {
+        System.setProperty("file.encoding", "UTF-8");
         initClasses();
         new DiscordApiBuilder()
                 .setToken(Secrets.TOKEN)
@@ -44,8 +45,8 @@ public class SupremeCatBot {
 
     private void initClasses() {
         instance = this;
-        commandManager = new CommandManager();
-        embedUtils = new EmbedUtils();
+        this.commandManager = new CommandManager();
+        this.embedUtils = new EmbedUtils();
     }
 
     private static void onShardLogin(DiscordApi discordApi) {
@@ -76,5 +77,4 @@ public class SupremeCatBot {
             } catch (IOException ignored) {}
         }).start();
     }
-
 }
